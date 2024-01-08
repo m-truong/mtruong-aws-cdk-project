@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 import "source-map-support/register";
 import * as cdk from "aws-cdk-lib";
-import { MtruongAwsCdkProjectStack } from "../lib/mtruong-aws-cdk-project-stack";
 import * as lambda from "aws-cdk-lib/aws-lambda";
+import { MtruongAwsCdkProjectStack } from "../lib/mtruong-aws-cdk-project-stack";
+import { MyEcsConstructStack } from "../lib/my-ecs-construct-stack";
 
 const app = new cdk.App();
 new MtruongAwsCdkProjectStack(app, "MtruongAwsCdkProjectStack", {
@@ -17,3 +18,5 @@ new MtruongAwsCdkProjectStack(app, "MtruongAwsCdkProjectStack", {
   // env: { account: '123456789012', region: 'us-east-1' },
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
 });
+
+new MyEcsConstructStack(app, "ECSFargate");
